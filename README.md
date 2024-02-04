@@ -1,17 +1,17 @@
-# notic
+# About Notic
 
-A new Flutter project.
+Notic is an application designed with Flutter, which is designed with a neomorphism design style and allows the user to record, delete and edit their daily notes.
 
-## Getting Started
+# Dependencies
 
-This project is a starting point for a Flutter application.
+  cupertino_icons: ^1.0.2
+  get: ^4.6.6
+  neumorphic_ui: ^1.0.1
+  sqflite: ^2.3.2
+  flutter_masonry_view: ^0.0.2
+  flutter_share: ^2.0.0
 
-A few resources to get you started if this is your first Flutter project:
+# Screen Shots
+![Screenshot_1707041858](https://github.com/AmirrezaKhezerlou/Flutter_Note_app/assets/45494511/7a0e0bac-e0d2-42ff-a85c-edc90d451ec3)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# Flutter_Note_app" 
