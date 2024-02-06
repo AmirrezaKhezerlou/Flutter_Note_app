@@ -27,7 +27,8 @@ class MainPage extends StatelessWidget {
                             BorderRadius.circular(10)),
                         depth: 5,
                         lightSource: LightSource.topLeft,
-                        color: Colors.white),
+                      color: Get.isDarkMode?Color(0xff2f2f2f):Colors.white
+                        ),
                     child: Center(child: Icon(Icons.menu)),
                   ),
                 ],
@@ -39,10 +40,7 @@ class MainPage extends StatelessWidget {
                 children: [
                   Text(
                     'All Notes',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff2f2f2f)),
+                    style: Theme.of(context).textTheme.labelLarge
                   )
                 ],
               ),
@@ -50,7 +48,7 @@ class MainPage extends StatelessWidget {
                 children: [
                   Text(
                     'Explore all notes you wrote.',
-                    style: TextStyle(fontSize: 10, color: Color(0xff707070)),
+                    style: TextStyle(fontSize: 10),
                   )
                 ],
               ),
@@ -70,7 +68,8 @@ class MainPage extends StatelessWidget {
                                 BorderRadius.circular(10)),
                             depth: 5,
                             lightSource: LightSource.topLeft,
-                            color: Colors.white),
+                            color: Get.isDarkMode?Color(0xff2f2f2f):Colors.white
+                            ),
                         child: TextFormField(
                           onChanged: (v) {
                             controller.search_data(v);
@@ -100,8 +99,9 @@ class MainPage extends StatelessWidget {
                           boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(10)),
                           depth: 5,
+                        color: Get.isDarkMode?Color(0xff2f2f2f):Colors.white,
                           lightSource: LightSource.topLeft,
-                          color: Colors.white),
+                          ),
                       child: Center(child: Icon(Icons.search)),
                     ),
                   ),
@@ -132,8 +132,10 @@ class MainPage extends StatelessWidget {
                               boxShape: NeumorphicBoxShape.roundRect(
                                   BorderRadius.circular(10)),
                               depth: 2,
+                            color: Get.isDarkMode?Color(0xff2f2f2f):Colors.white,
                               lightSource: LightSource.topLeft,
-                              color: Colors.white),
+                             // color: Colors.white
+                          ),
                           child: Container(
                             child: Column(
                               children: [
@@ -158,7 +160,9 @@ class MainPage extends StatelessWidget {
                                   children: [
                                     Expanded(
                                         child: Text(controller.notes[index]
-                                            ['content'])),
+                                            ['content'],
+                                        style: Theme.of(context).textTheme.bodyMedium,
+                                        ),),
                                   ],
                                 ),
                               ],
@@ -178,7 +182,8 @@ class MainPage extends StatelessWidget {
               boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(10)),
               depth: 5,
               lightSource: LightSource.topLeft,
-              color: Colors.white),
+              color: Get.isDarkMode?Color(0xff2f2f2f):Colors.white,
+             ),
           child: Icon(Icons.add),
           onPressed: () {
             Get.to(

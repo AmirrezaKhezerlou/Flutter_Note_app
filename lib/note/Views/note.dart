@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:neumorphic_ui/neumorphic_ui.dart';
 import 'package:notic/note/Controllers/note_controller.dart';
-
 import '../../main_screen/Controllers/mainpage_controller.dart';
 
 // ignore: must_be_immutable
@@ -48,21 +47,19 @@ class _NotePageState extends State<NotePage> {
                       Get.back();
                     },
                     style: NeumorphicStyle(
-                        surfaceIntensity: 0.25,
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            BorderRadius.circular(10)),
-                        depth: 2,
-                        lightSource: LightSource.topLeft,
-                        color: Colors.white),
+                      color: Get.isDarkMode ? Color(0xff2f2f2f) : Colors.white,
+                      surfaceIntensity: 0.25,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(10)),
+                      depth: 2,
+                      lightSource: LightSource.topLeft,
+                    ),
                     child: Center(child: Icon(Icons.arrow_back_ios)),
                   ),
                   SizedBox(width: 20),
                   Text(
                     'Note',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff2f2f2f)),
+                    style: Theme.of(context).textTheme.labelLarge,
                   )
                 ],
               ),
@@ -72,38 +69,38 @@ class _NotePageState extends State<NotePage> {
               Expanded(
                 child: Neumorphic(
                   style: NeumorphicStyle(
-                      surfaceIntensity: 0.25,
-                      boxShape: NeumorphicBoxShape.roundRect(
-                          BorderRadius.circular(10)),
-                      depth: -4,
-                      lightSource: LightSource.topLeft,
-                      color: Colors.white),
+                    surfaceIntensity: 0.25,
+                    boxShape:
+                        NeumorphicBoxShape.roundRect(BorderRadius.circular(10)),
+                    depth: -7,
+                    color: Get.isDarkMode ? Color(0xff2f2f2f) : Colors.white,
+                    lightSource: LightSource.bottomRight,
+                  ),
                   child: ListView(
                     physics: BouncingScrollPhysics(),
                     shrinkWrap: true,
                     children: [
                       TextFormField(
+                        style: Theme.of(context).textTheme.labelLarge,
                         maxLines: 1,
                         maxLength: 20,
                         controller: controller.title_controller,
                         decoration: InputDecoration(
                             counter: SizedBox.shrink(),
                             contentPadding: EdgeInsets.all(10),
-                            hintStyle: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xff707070)),
+                            hintStyle: Theme.of(context).textTheme.labelLarge,
                             hintText: 'Title',
                             border: InputBorder.none),
                       ),
                       TextFormField(
+                        style: Theme.of(context).textTheme.bodyMedium,
                         maxLines: 1000,
                         minLines: 1,
                         controller: controller.content_controller,
                         decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
                             hintText: 'Write your notes here ...',
-                            hintStyle: TextStyle(color: Color(0xff707070)),
+                            hintStyle: Theme.of(context).textTheme.bodyMedium,
                             border: InputBorder.none),
                       ),
                     ],
@@ -119,7 +116,7 @@ class _NotePageState extends State<NotePage> {
         children: [
           NeumorphicButton(
             onPressed: () {
-              if(controller.content_controller.text.isNotEmpty){
+              if (controller.content_controller.text.isNotEmpty) {
                 if (widget.id != -1) {
                   controller.updateNote(widget.id);
                 } else {
@@ -130,20 +127,20 @@ class _NotePageState extends State<NotePage> {
                     controller.title_controller.text,
                   );
                 }
-              }else{
+              } else {
                 Get.snackbar('Error', 'Cant Save Empty Message!');
               }
-
             },
             margin: EdgeInsets.only(bottom: 10),
             style: NeumorphicStyle(
-                surfaceIntensity: 0.02,
-                boxShape: NeumorphicBoxShape.beveled(
-                  BorderRadius.circular(5),
-                ),
-                depth: 2,
-                lightSource: LightSource.topLeft,
-                color: Colors.white),
+              color: Get.isDarkMode ? Color(0xff2f2f2f) : Colors.white,
+              surfaceIntensity: 0.02,
+              boxShape: NeumorphicBoxShape.beveled(
+                BorderRadius.circular(5),
+              ),
+              depth: 2,
+              lightSource: LightSource.topLeft,
+            ),
             child: Icon(Icons.done),
           ),
           NeumorphicButton(
@@ -160,30 +157,32 @@ class _NotePageState extends State<NotePage> {
             },
             margin: EdgeInsets.only(bottom: 10),
             style: NeumorphicStyle(
-                surfaceIntensity: 0.02,
-                boxShape: NeumorphicBoxShape.beveled(
-                  BorderRadius.circular(5),
-                ),
-                depth: 2,
-                lightSource: LightSource.topLeft,
-                color: Colors.white),
+              surfaceIntensity: 0.02,
+              color: Get.isDarkMode ? Color(0xff2f2f2f) : Colors.white,
+              boxShape: NeumorphicBoxShape.beveled(
+                BorderRadius.circular(5),
+              ),
+              depth: 2,
+              lightSource: LightSource.topLeft,
+            ),
             child: Icon(Icons.delete),
           ),
           NeumorphicButton(
             onPressed: () {
-              if(widget.id != -1){
-               controller.shareText(widget.content);
+              if (widget.id != -1) {
+                controller.shareText(widget.content);
               }
             },
             margin: EdgeInsets.only(bottom: 10),
             style: NeumorphicStyle(
-                surfaceIntensity: 0.02,
-                boxShape: NeumorphicBoxShape.beveled(
-                  BorderRadius.circular(5),
-                ),
-                depth: 2,
-                lightSource: LightSource.topLeft,
-                color: Colors.white),
+              color: Get.isDarkMode ? Color(0xff2f2f2f) : Colors.white,
+              surfaceIntensity: 0.02,
+              boxShape: NeumorphicBoxShape.beveled(
+                BorderRadius.circular(5),
+              ),
+              depth: 2,
+              lightSource: LightSource.topLeft,
+            ),
             child: Icon(Icons.share),
           ),
         ],
